@@ -46,9 +46,9 @@ namespace Altium.Generator
             var rnd = new Random(DateTime.UtcNow.Second);
             using var fs = File.Create(outputFile);
             using var wr = new StreamWriter(fs, Encoding.ASCII, 32 * 1024 * 1024);
-            while (uniqueRecords > 0 && duplicateRecords > 0)
+            while (uniqueRecords > 0 || duplicateRecords > 0)
             {
-                var generateDuplicate = uniqueRecords == 0 || (
+                var generateDuplicate = uniqueRecords <= 0 || (
                     // We haven't reached limit for duplicates yet
                     duplicateRecords > 0
                     // And we have duplicates to choose from
