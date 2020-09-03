@@ -15,7 +15,7 @@
 >> .\bin\win81-x64\Altium.Generator.exe 8000000000 d:\tmp\10Gb.txt
 
 Сортировка файла
->> .\bin\win81-x64\Altium.Sorter.exe d:\tmp\10Gb.txt d:\tmp\10Gb.txt d:\tmp\10Gb.sorted.txt
+>> .\bin\win81-x64\Altium.Sorter.exe d:\tmp\10Gb.txt d:\tmp\10Gb.sorted.txt
 
 == МОЕ ОКРУЖЕНИЕ ==
 Intel Core i5-8250U 1.4Gz, RAM 16Gb, HDD
