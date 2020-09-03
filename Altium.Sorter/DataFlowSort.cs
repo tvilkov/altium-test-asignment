@@ -42,7 +42,7 @@ namespace Altium.Sorter
             };
             var mergeOptions = new ExecutionDataflowBlockOptions
             {
-                BoundedCapacity = 4,
+                BoundedCapacity = 2,
                 MaxDegreeOfParallelism = 2
             };
 

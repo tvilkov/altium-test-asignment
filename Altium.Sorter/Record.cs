@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace Altium.Sorter
 {
-    internal class Record
+    internal struct Record
     {
         public readonly long Number;
         public readonly string String;
