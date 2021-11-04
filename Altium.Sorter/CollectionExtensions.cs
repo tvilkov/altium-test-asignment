@@ -10,7 +10,7 @@ namespace Altium.Sorter
             if (sortedSources == null) throw new ArgumentNullException(nameof(sortedSources));
             if (comparer == null) throw new ArgumentNullException(nameof(comparer));
 
-            var readers = new List<IEnumerator<T>>();
+            var readers = new SortedList<T, IEnumerator<T>>(comparer);
             foreach (var source in sortedSources)
             {
                 var en = source.GetEnumerator();
@@ -19,24 +19,22 @@ namespace Altium.Sorter
                     en.Dispose();
                     continue;
                 }
-                readers.Add(en);
+                readers.Add(en.Current, en);
             }
 
             while (readers.Count > 0)
             {
-                var min = readers[0];
-                for (var i = 1; i < readers.Count; ++i)
-                {
-                    if (comparer.Compare(readers[i].Current, min.Current) < 0)
-                    {
-                        min = readers[i];
-                    }
-                }
+                var min = readers.Values[0];
                 yield return min.Current;
-                if (!min.MoveNext())
+
+                readers.RemoveAt(0);
+                if (min.MoveNext())
+                {
+                    readers.Add(min.Current, min);
+                }
+                else
                 {
                     min.Dispose();
-                    readers.Remove(min);
                 }
             }
         }

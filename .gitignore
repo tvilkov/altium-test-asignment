@@ -107,5 +107,6 @@ packages/
 *.nupkg
 packages
 /tmp/*
+.vs/
 
 src/*/logs

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Altium.Sorter": {
+      "commandName": "Project",
+      "commandLineArgs": "d:\\tmp\\1Gb.txt  d:\\tmp\\1Gb.sorted.txt "
+    }
+  }
+}
